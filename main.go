@@ -6,14 +6,14 @@ import (
 )
 
 // string varriabler av "verdenen"
-var west = "(Kylling, Korn, MSK, Rev ---W___"
+var west = "(Kylling, Korn, Person, Rev ---W___"
 var east = "___E--- )"
 var boat = "\\__/"
 
 func main() {
 	ViewState()
 	PutInBoatWest("Kylling")
-	PutInBoatWest("MSK")
+	PutInBoatWest("Person")
 	ViewState()
 	CrossWaterEast("Kylling")
 	ViewState()
@@ -32,9 +32,9 @@ func PutInBoatWest(item string) {
 		west = strings.ReplaceAll(west, "Kylling", "")               // ser etter lengeden på string og kutter opp
 		boat = boat[:len(boat)-3] + " Kylling " + boat[len(boat)-3:] // sånn at 3 siste tegne i stringen blir før kylling
 		break                                                        // og 3 siste blir etter kylling.
-	case "MSK":
-		west = strings.ReplaceAll(west, "MSK", "")
-		boat = boat[:len(boat)-3] + " MSK " + boat[len(boat)-3:]
+	case "Person":
+		west = strings.ReplaceAll(west, "Person", "")
+		boat = boat[:len(boat)-3] + " Person " + boat[len(boat)-3:]
 	case "Rev":
 		west = strings.ReplaceAll(west, "Rev", "")
 		boat = boat[:len(boat)-3] + " Rev " + boat[len(boat)-3:]
@@ -55,9 +55,9 @@ func CrossWaterEast(item string) {
 		boat = strings.ReplaceAll(boat, "Rev", "")
 		east = east[:len(east)-1] + " Rev " + east[len(east)-1:]
 		break
-	case "MSK":
-		boat = strings.ReplaceAll(boat, "MSK", "")
-		east = east[:len(east)-1] + " MSK " + east[len(east)-1:]
+	case "Person":
+		boat = strings.ReplaceAll(boat, "Person", "")
+		east = east[:len(east)-1] + " Person " + east[len(east)-1:]
 		break
 	case "Kylling":
 		boat = strings.ReplaceAll(boat, "Kylling", "")

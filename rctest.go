@@ -10,11 +10,11 @@ import (
 // error melding.
 func TestInPutBoatWest(t *testing.T) {
 
-	PutInBoatWest("MSK")
+	PutInBoatWest("Person")
 	PutInBoatWest("Korn")
 	ViewState()
 
-	if !strings.Contains(GetWest(), "MSK") {
+	if !strings.Contains(GetWest(), "Person") {
 		if strings.Contains(GetWest(), "Kylling") && strings.Contains(GetWest(), "Korn") {
 			t.Errorf("Illegal state, Kylling spiser Korn")
 		}
@@ -28,19 +28,19 @@ func TestInPutBoatWest(t *testing.T) {
 // tester hva som er i båten, om den blir overbelastet, om noe spiser noe.
 func TestGetBoat(t *testing.T) {
 
-	if strings.Contains(GetBoat(), "Kylling") && strings.Contains(GetBoat(), "MSK") && strings.Contains(GetBoat(), "Rev") {
+	if strings.Contains(GetBoat(), "Kylling") && strings.Contains(GetBoat(), "Person") && strings.Contains(GetBoat(), "Rev") {
 		t.Errorf("Illegal state, Overbelastet båt")
 	}
-	if strings.Contains(GetBoat(), "Korn") && strings.Contains(GetBoat(), "MSK") && strings.Contains(GetBoat(), "Rev") {
+	if strings.Contains(GetBoat(), "Korn") && strings.Contains(GetBoat(), "Person") && strings.Contains(GetBoat(), "Rev") {
 		t.Errorf("Illegal state, Overbelastet båt")
 	}
-	if strings.Contains(GetBoat(), "Korn") && strings.Contains(GetBoat(), "MSK") && strings.Contains(GetBoat(), "Kylling") {
+	if strings.Contains(GetBoat(), "Korn") && strings.Contains(GetBoat(), "Person") && strings.Contains(GetBoat(), "Kylling") {
 		t.Errorf("Illegal state, Overbelastet båt")
 	}
 	if strings.Contains(GetBoat(), "Kylling") && strings.Contains(GetBoat(), "Rev") {
 		t.Errorf("Illegal state, Rev spiser Kylling")
 	}
-	if strings.Contains(GetBoat(), "MSK") && strings.Contains(GetBoat(), "Korn") {
+	if strings.Contains(GetBoat(), "Person") && strings.Contains(GetBoat(), "Korn") {
 		t.Errorf("Illegal state, Rev spiser Kylling")
 	}
 	if strings.Contains(GetBoat(), "Korn") && strings.Contains(GetBoat(), "Kylling") {
